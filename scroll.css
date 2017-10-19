@@ -106,10 +106,10 @@ body {
 }
 
 @-skrollr-keyframes girl {
-    590 {
+    1200 {
         left: 770px;
     }
-    1308 {
+    1700 {
         left: 830px;
     }
 }
@@ -140,8 +140,8 @@ body {
         top: -120px;
     }
     3113 {
-        left: 200px;
-        top: -220px;
+        left: 230px;
+        top: -250px;
     }
 }
 
@@ -174,8 +174,8 @@ body {
     2220 {
         left: 52%;
     }
-    3164 {
-        left: 53%;
+    3400 {
+        left: 54%;
     }
 }
 
@@ -201,7 +201,7 @@ body {
         left: -300px;
     }
     4487 {
-        left: -200px;
+        left: -170px;
     }
 }
 
@@ -210,7 +210,7 @@ body {
         right: 0px;
     }
     4487 {
-        right: -100px;
+        right: -130px;
     }
 }
 
@@ -242,6 +242,7 @@ body {
 .seven {
     background-image: url('demo/bg(5).jpg');
     background-size: cover;
+    background-repeat: no-repeat;
     background-position: -100px;
     left: 100%;
 }
@@ -252,7 +253,7 @@ body {
     background-image: url('demo/bg(6).jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: 40px -100px;
+    background-position: 0px -100px;
 }
 
 /*    seven   */
@@ -281,7 +282,4 @@ body {
     z-index: -1;
     background: #000;
 }
-
-
-
 

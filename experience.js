@@ -2,7 +2,24 @@
 
 var h = window.innerHeight;
 
+var control = {
+    t: 0,
+    autoplay: false,
+    speed: 5,
+    audio: false
+}
+
 window.onload = function() {
+
+    var status = document.querySelector('.status');
+
+    control.autoplay && startScroll(status);
+
+    status.onclick = function () {
+        control.autoplay = !control.autoplay;
+        control.autoplay && startScroll(this);
+        !control.autoplay && stopScroll(this);
+    }
     
     var page = document.querySelectorAll('.page');
     
@@ -30,8 +47,8 @@ window.onload = function() {
     var scene_six_girl = document.querySelector('.scene.six .girl');
 
     var scene_six_girl_skroller = [
-        {key: 'data-' + ( 4737 + 1 * h ), value: 'left: 400px;'},
-        {key: 'data-' + ( 4737 + 2 * h ), value: 'left: 100px;'},
+        {key: 'data-' + ( 4737 + .5 * h ), value: 'left: 50%;'},
+        {key: 'data-' + ( 4737 + 2 * h ), value: 'left: 10%;'},
     ] 
 
     attr(scene_six_girl,scene_six_girl_skroller)
@@ -45,13 +62,13 @@ window.onload = function() {
         {key: 'data-' + ( 4937 + 3 * h ), value: 'left: -100%;'},
     ]
 
-    scene_seven.style.top = - (2*h + 200) + 'px';
+    scene_seven.style.top = - (2 * h + 200) + 'px';
 
     attr(scene_seven,scene_seven_skroller)
 
     var left_con_left = document.querySelector('.left_con_left');
 
-    left_con_left.style.top = - (3*h + 200) + 'px';
+    left_con_left.style.top = - (3 * h + 200) + 'px';
 
     // animation _eight
 
@@ -64,7 +81,7 @@ window.onload = function() {
 
     attr(scene_eight,scene_eight_skroller)
 
-    scene_eight.style.top = - (4*h + 200) + 'px';
+    scene_eight.style.top = - (4 * h + 200) + 'px';
 
     // animation _nine
 
@@ -77,7 +94,7 @@ window.onload = function() {
 
     attr(scene_nine,scene_nine_skroller)
 
-    scene_nine.style.top = - (5*h + 200) + 'px';
+    scene_nine.style.top = - (5 * h + 200) + 'px';
 
     // animation _nine_girl
 
@@ -136,7 +153,18 @@ function attr(obj,arr) {
     })
 }
 
+function startScroll(status){
+    status.innerText = 'AUTOPLAY ON';
+    clearInterval(control.t)
+    control.t = setInterval(() => {
+        document.documentElement.scrollTop++;
+    },control.speed)
+}
 
+function stopScroll(status){
+    status.innerText = 'AUTOPLAY OFF';
+    clearInterval(control.t)
+}
 
 
 
