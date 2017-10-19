@@ -1,18 +1,16 @@
+/*    all_margin    */
+
 * {
     margin: 0;
 }
 
-/*    help    */
+/*    body_basic    */
 
 body {
     overflow-x: hidden;
 }
 
-.scrPos {
-    position: fixed;
-    left: 0; top: 0; right: 0; bottom: 0;
-    z-index: -1;
-}
+/*    control    */
 
 .control {
     position: fixed;
@@ -27,259 +25,156 @@ body {
     cursor: pointer;
 }
 
-/*     before    */
-
-.before {
-    background: #000;
-    height: 700px;
-    position: relative;
-}
-
-/*     transfer    */
-
-.transfer {
-    background: #000;
-}
+/*     page_basic     */
 
 .page {
     position: relative;
     color: #fff;
-}
-
-/*     scene     */
-
-.scene {
-    position: relative;
+    background: #000;
     overflow: hidden;
 }
-.scene img {
-    position: relative;
-}
 
-.scene .bg {
+.page img {
     position: absolute;
-    left: 0; top: 0;
 }
 
-/*     one    */
+/*     page_one    */
 
-.one {
-    background-image: url('demo/bg.jpg');
-    background-position: bottom;
-    background-size: 100%;
-    -skrollr-animation-name: one;
-}
-.one .girl {
-    margin-top: 70px;
-    left: 35%;
-}
-.one .chair {
-    top: 400px;
-}
-
-@-skrollr-keyframes one {
-   392 {
-     transform: translateY(-20px);
-   }
-   924 {
-     transform: translateY(-140px);
-   }
-}
-
-/*     two    */
-
-.two {
-    background-image: url('demo/bg(1).jpg');
-    background-size: 100%;
-    background-position: 50% 10%;
-    margin-top: -140px;
-}
-
-.two .girl {
-    margin-top: 100px;
-    -skrollr-animation-name: girl;
-}
-
-.two .chair {
-    left: 435px;
-    top: 560px;
-}
-
-@-skrollr-keyframes girl {
-    1200 {
-        left: 770px;
-    }
-    1700 {
-        left: 830px;
-    }
-}
-
-/*     three    */
-
-.three {
-    background-image: url('demo/bg(2).jpg');
-    background-size: 1507px;
-    background-position: -30px;
-    overflow: visible;
-}
-
-.three .girl {
-    left: 600px;
-    margin-top: 100px;
-}
-
-.three .verre {
-    -skrollr-animation-name: verre;
-    top: -100px;
-    z-index: 1;
-}
-
-@-skrollr-keyframes verre {
-    1257 {
-        left: 100px;
-        top: -120px;
-    }
-    3113 {
-        left: 230px;
-        top: -250px;
-    }
-}
-
-/*    four   */
-
-.four {
-    height: 855px;
-    background-image: url('demo/bg(3).jpg');
+.page_one {
+    background-image: url('img/bg.jpg');
     background-size: 100% 100%;
 }
 
-.four .street {
-    width: 100%;
-    height: 100%;
-}
-
-.four .girl {
-    /*left: 52%;*/
-    margin-top: 425px;
-    -skrollr-animation-name: debris_girl;
-}
-
-.four .debris {
-    transform: rotateZ(-312deg);
-    top: 280px;
-    left: 240px;
-}
-
-@-skrollr-keyframes debris_girl {
-    2220 {
-        left: 52%;
-    }
-    3400 {
-        left: 54%;
-    }
-}
-
-/*    five   */
-
-.five {
-    background-image: url('demo/bg(4).jpg');
-    background-size: cover;
-}
-
-.five .left {
-    margin-top: 50px;
-    -skrollr-animation-name: dog_left;
-}
-
-.five .right {
-    left: auto;
-    -skrollr-animation-name: dog_right;
-}
-
-@-skrollr-keyframes dog_left {
-    2978 {
-        left: -300px;
-    }
-    4487 {
-        left: -170px;
-    }
-}
-
-@-skrollr-keyframes dog_right {
-    2978 {
-        right: 0px;
-    }
-    4487 {
-        right: -130px;
-    }
-}
-
-/*    transition one   */
-
-.tr_one {
-    background: #000;
-    left: 0;
-    right: 0;
-    top: 0;
-}
-
-/*    six   */
-
-.six {
-    background-image: url('demo/bg_hide.jpg');
-    background-size: cover;
-    left: 100%;
-    z-index: 1;
-}
-
-.six .girl {
+.page_one .girl {
     left: 500px;
-    top: 100px;
-}
-
-/*    seven   */
-
-.seven {
-    background-image: url('demo/bg(5).jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: -100px;
-    left: 100%;
-}
-
-/*    seven   */
-
-.eight {
-    background-image: url('demo/bg(6).jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 0px -100px;
-}
-
-/*    seven   */
-
-.nine {
-    background-image: url('demo/bg(7).jpg');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-}
-
-.nine .girl {
-    top: auto;
-    left: -500px;
     bottom: 0;
 }
 
-
-/*     transfer    */ 
-
-.top_con_left {
-    padding-bottom: 200px;
-    box-sizing: content-box;
+.page_one .chair {
+    bottom: 0;
 }
 
-.left_con_left {
+/*    page_two     */
+
+.page_two {
+    background-image: url('img/bg(1).jpg');
+    background-size: 100% 100%;
+}
+
+.page_two .girl {
+    bottom: 0;
+}
+
+/*    page_three     */
+
+.page_three {
+    overflow: visible;
+    background-image: url('img/bg(2).jpg');
+    background-size: 100% 100%;
+    z-index: 1;
+}
+
+.page_three .verre {
+
+}
+
+.page_three .girl {
+    bottom: 0;
+    left: 50%;
+    margin-left: -100px;
+}
+
+/*    page_four     */
+
+.page_four {
+    background-image: url('img/bg(3).jpg');
+    background-size: 100% 100%;
+}
+
+.page_four .girl {
+    bottom: 0;
+}
+
+/*    page_five    */
+
+.page_five {
+    background-image: url('img/bg(4).jpg');
+    background-size: 100% 100%;
+}
+
+.page_five .dog_left {
+    bottom: 0;
+}
+
+.page_five .dog_right {
+    top: 0;
+}
+
+.change_first {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+}
+
+/*    page_six    */
+
+.page_six {
+    background-image: url('img/bg_hide.jpg');
+    background-size: 100% 100%;
+    left: 100%;
+    z-index: 1;
+}
+
+.page_six .girl {
+    right: -200px;
+    bottom: 0;
+}
+
+/*    page_seven    */
+
+.page_seven {
+    background-image: url('img/bg(5).jpg');
+    background-size: 100% 100%;
+    left: 100%;
+}
+
+.left_left {
+    left: 100%;
     z-index: -1;
-    background: #000;
 }
+
+/*    page_eight    */
+
+.page_eight {
+    background-image: url('img/bg(6).jpg');
+    background-size: 100%%;
+    background-position: 0px;
+    left: 100%;
+    z-index: 1;
+}
+
+/*    page_nine    */
+
+.page_nine {
+    background-image: url('img/bg(7).jpg');
+    background-size: 100%% 100%;
+    left: 100%;
+    z-index: 1;
+}
+
+.page_nine .girl {
+    bottom: 0;
+    left: -800px;
+}
+
+
+
+
+
+
+
+
+
+
 

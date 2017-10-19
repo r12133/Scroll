@@ -1,6 +1,6 @@
 // page 高度100%
 
-var h = window.innerHeight;
+var win_h = window.innerHeight;
 
 var control = {
     t: 0,
@@ -9,146 +9,9 @@ var control = {
     audio: false
 }
 
-window.onload = function() {
-
-    var status = document.querySelector('.status');
-
-    control.autoplay && startScroll(status);
-
-    status.onclick = function () {
-        control.autoplay = !control.autoplay;
-        control.autoplay && startScroll(this);
-        !control.autoplay && stopScroll(this);
-    }
-    
-    var page = document.querySelectorAll('.page');
-    
-    Array.prototype.forEach.call(page, function(ele,index,arr){
-      ele.style.height = h + 'px';
-    })
-
-    document.addEventListener('scroll',winScroll,false);
-
-    // animation _six
-
-    var scene_six = document.querySelector('.scene.six');
-
-    var scene_six_skroller = [
-        {key: 'data-4737', value: 'left: 100%;'},
-        {key: 'data-' + ( 4737 + 2 * h ), value: 'left: -100%;'},
-    ]
-
-    attr(scene_six,scene_six_skroller)
-
-    scene_six.style.top = - (h + 200) + 'px';
-
-    // animation _six_girl
-
-    var scene_six_girl = document.querySelector('.scene.six .girl');
-
-    var scene_six_girl_skroller = [
-        {key: 'data-' + ( 4737 + .5 * h ), value: 'left: 50%;'},
-        {key: 'data-' + ( 4737 + 2 * h ), value: 'left: 10%;'},
-    ] 
-
-    attr(scene_six_girl,scene_six_girl_skroller)
-
-    // animation _seven
-
-    var scene_seven = document.querySelector('.scene.seven');
-
-    var scene_seven_skroller = [
-        {key: 'data-' + ( 4937 + 2 * h ), value: 'left: 0%;'},
-        {key: 'data-' + ( 4937 + 3 * h ), value: 'left: -100%;'},
-    ]
-
-    scene_seven.style.top = - (2 * h + 200) + 'px';
-
-    attr(scene_seven,scene_seven_skroller)
-
-    var left_con_left = document.querySelector('.left_con_left');
-
-    left_con_left.style.top = - (3 * h + 200) + 'px';
-
-    // animation _eight
-
-    var scene_eight = document.querySelector('.scene.eight');
-
-    var scene_eight_skroller = [
-        {key: 'data-' + ( 4937 + 3 * h ), value: 'left: 100%;'},
-        {key: 'data-' + ( 4937 + 4 * h ), value: 'left: 0%;'},
-    ]
-
-    attr(scene_eight,scene_eight_skroller)
-
-    scene_eight.style.top = - (4 * h + 200) + 'px';
-
-    // animation _nine
-
-    var scene_nine = document.querySelector('.scene.nine');
-
-    var scene_nine_skroller = [
-        {key: 'data-' + ( 4937 + 4 * h ), value: 'left: 100%;'},
-        {key: 'data-' + ( 4937 + 6 * h ), value: 'left: -100%;'},
-    ]
-
-    attr(scene_nine,scene_nine_skroller)
-
-    scene_nine.style.top = - (5 * h + 200) + 'px';
-
-    // animation _nine_girl
-
-    var scene_nine_girl = document.querySelector('.scene.nine .girl');
-
-    var scene_nine_girl_skroller = [
-        {key: 'data-' + ( 4937 + 4 * h ), value: 'left: -66%;'},
-        {key: 'data-' + ( 4937 + 6 * h ), value: 'left: 0%;'},
-    ]
-
-    attr(scene_nine_girl,scene_nine_girl_skroller)
-
-    // init
-
-    var s = skrollr.init();
-}
-
-function winScroll(e) {
-    e = e || window.event;
-
-    var st = document.documentElement.scrollTop;
-
-    var tr_one = document.querySelector('.tr_one');
-
-    var scene_seven = document.querySelector('.scene.seven');
-
-    var top_con_left = document.querySelector('.top_con_left');
-
-    var left_con_left = document.querySelector('.left_con_left');
-
-    if(st >= 4537){
-        tr_one.style.position = 'fixed';
-    }else {
-        tr_one.style.position = 'relative';
-    }
-
-    if( st >= (4737 + h) && st < (4937 + h) ){
-        scene_seven.style.left = '0px';
-        top_con_left.style.left = '-100%';
-    }else if( st < (4737 + h) ){
-        scene_seven.style.left = '100%';
-        top_con_left.style.left = '0';
-    }
-
-    if( st >= (4937 + 2 * h)){
-        left_con_left.style.left = '0px';
-    }else {
-        left_con_left.style.left = '100%';
-    }
-
-}
-
-function attr(obj,arr) {
+function animate(obj,arr) {
     arr.forEach(function(ele){
+        ele.key = 'data-' + ele.key;
         obj.setAttribute(ele.key,ele.value);
     })
 }
@@ -166,13 +29,222 @@ function stopScroll(status){
     clearInterval(control.t)
 }
 
+function init() {
+    var s = skrollr.init();
+}
 
+function change_first_settings() {
 
+    var page_first = document.querySelector('.change_first .page'),
 
+        page_six = document.querySelector('.page_six'),
 
+        page_seven = document.querySelector('.page_seven'),
 
+        left_left = document.querySelector('.left_left'),
 
+        page_eight = document.querySelector('.page_eight'),
 
+        page_nine = document.querySelector('.page_nine');
 
+    page_first.style.paddingBottom = '100px';
+
+    page_first.style.boxSizing = 'content-box';
+
+    page_six.style.top = -(1 * win_h) - 100 + 'px';
+
+    page_seven.style.marginTop = '200px';
+
+    page_seven.style.top = -(2 * win_h) - 300 + 'px';
+    
+
+    left_left.style.top = -(3 * win_h) - 300 + 'px';
+
+    page_eight.style.top = -(4 * win_h) - 300 + 'px';
+
+    page_nine.style.top = -(5 * win_h) - 300 + 'px';
+}
+
+window.onload = function() {
+
+    // controll
+
+    var status = document.querySelector('.status');
+
+    control.autoplay && startScroll(status);
+
+    status.onclick = function () {
+        control.autoplay = !control.autoplay;
+        control.autoplay && startScroll(this);
+        !control.autoplay && stopScroll(this);
+    }
+    
+    var page = document.querySelectorAll('.page');
+    
+    Array.prototype.forEach.call(page, function(ele,index,arr){
+      ele.style.height = win_h + 'px';
+    })
+
+    document.addEventListener('scroll',winScroll,false);
+
+    // page_one_animation   滚动高度为 h
+    
+    var page_one = document.querySelector('.page_one');
+
+    page_one.style.marginBottom = '-100px';
+
+    var page_one_control = [
+        {key: win_h, value: 'top:0px;' },
+        {key: win_h * 1.5 - 50, value: 'top:-100px;'},
+    ];
+    
+    animate(page_one,page_one_control)
+
+    // page_two_animation ( girl )  滚动高度为 2h - 100 ( margin-bottom )
+
+    var page_two_girl = document.querySelector('.page_two .girl');
+
+    var page_two_girl_control = [
+        {key: win_h * 1.5 + 100, value: 'right: 150px;' },
+        {key: win_h * 2, value: 'right: 100px;'},
+    ];
+
+    animate(page_two_girl,page_two_girl_control)
+
+    // page_three_animation ( verre )  滚动高度为 4h - 100 ( margin-bottom )
+
+    var page_three_verre = document.querySelector('.page_three .verre');
+
+    var page_three_verre_control = [
+        {key: win_h * 3 - 100, value: 'left: 100px;top:-150px;' },
+        {key: win_h * 5 - 100, value: 'left: 400px;top: -200px;'},
+    ];
+
+    animate(page_three_verre,page_three_verre_control)
+
+    // page_four_animation ( girl )  滚动高度为 5h - 100 ( margin-bottom )
+
+    var page_four_girl = document.querySelector('.page_four .girl');
+
+    var page_four_girl_control = [
+        {key: win_h * 4.5 - 100, value: 'left: 50%' },
+        {key: win_h * 5.5 - 100, value: 'left: 52%'},
+    ];
+
+    animate(page_four_girl,page_four_girl_control)
+
+    // page_five_animation ( dog_left dog_right )  滚动高度为 6h - 100 ( margin-bottom )
+
+    var page_five_dog_left = document.querySelector('.page_five .dog_left'),
+        page_five_dog_right = document.querySelector('.page_five .dog_right');
+
+    var page_five_dog_left_control = [
+        {key: win_h * 5 - 100, value: 'left: -400px' },
+        {key: win_h * 7 - 100, value: 'left: -100px'},
+    ],
+        page_five_dog_right_control = [
+        {key: win_h * 5 - 100, value: 'right: 0px' },
+        {key: win_h * 7 - 100, value: 'right: -300px'},
+    ];
+    
+    animate(page_five_dog_left,page_five_dog_left_control)
+
+    animate(page_five_dog_right,page_five_dog_right_control)
+
+    // change_first 初始化
+
+    change_first_settings();
+
+    // page_six_animation ( self girl )  滚动高度为 8h ( margin-bottom 和 padding-bottom 抵消 )
+
+    var page_six_ = document.querySelector('.page_six'),
+        page_six_girl = document.querySelector('.page_six .girl');
+
+    var page_six_control = [
+        {key: win_h * 7, value: 'left: 100%' },
+        {key: win_h * 9, value: 'left: -100%'},
+    ],
+        page_six_girl_control = [
+        {key: win_h * 8, value: 'right: -200px' },
+        {key: win_h * 9, value: 'right: 0px'},
+    ];
+
+    animate(page_six_,page_six_control)
+
+    animate(page_six_girl,page_six_girl_control)
+
+    // page_seven_animation  滚动高度为 9h + 200 ( margin-top )
+
+    var page_seven_ = document.querySelector('.page_seven');
+
+    var page_seven_control = [
+        {key: win_h * 9 + 200, value: 'left: 0%;' },
+        {key: win_h * 10 + 200, value: 'left: -100%;'},
+    ]
+
+    animate(page_seven_,page_seven_control)
+
+    // page_eight_animation  滚动高度为 11h + 200 ( margin-top )
+
+    var page_eight = document.querySelector('.page_eight');
+
+    var page_eight_control = [
+        {key: win_h * 10 + 200, value: 'left: 100%;transform: rotateZ(-5deg);' },
+        {key: win_h * 12 + 200, value: 'left: -100%;transform: rotateZ(5deg);'},
+    ]
+
+    animate(page_eight,page_eight_control)
+
+    // page_nine_animation ( self girl )  滚动高度为 12h + 200 ( margin-top )
+
+    var page_nine = document.querySelector('.page_nine'),
+        page_nine_girl = document.querySelector('.page_nine .girl');
+
+    var page_nine_control = [
+        {key: win_h * 11 + 200, value: 'left: 100%' },
+        {key: win_h * 13 + 200, value: 'left: -100%'},
+    ],
+        page_nine_girl_control = [
+        {key: win_h * 11 + 200, value: 'left: -800px' },
+        {key: win_h * 13 + 200, value: 'left: 0px'},
+    ];
+
+    animate(page_nine,page_nine_control)
+
+    animate(page_nine_girl,page_nine_girl_control)
+
+    // init
+
+    init();
+}
+
+function winScroll(e) {
+
+    var st = document.documentElement.scrollTop;
+
+    var change_first = document.querySelector('.change_first');
+
+    var page_seven = document.querySelector('.page_seven');
+
+    var left_left = document.querySelector('.left_left');
+
+    // 固定 change_first
+
+    if(st >= ( 7 * win_h - 100 ) ) {
+        change_first.style.position = 'fixed';
+    }else {
+        change_first.style.position = 'relative';
+    }
+
+    // 固定 page_seven & left_left ||  st < ( 9 * win_h + 300 ) + else if --> 让回滚时不出现闪烁
+    
+    if(st >= ( 8 * win_h ) && st < ( 9 * win_h + 300 ) ) {
+        page_seven.style.left = '0%';
+        left_left.style.left = '0px';
+    }else if(st < ( 8 * win_h )) {
+        page_seven.style.left = '100%';
+        left_left.style.left = '100%';
+    }
+}
 
 
