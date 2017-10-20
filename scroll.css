@@ -15,7 +15,7 @@ body {
 .control {
     position: fixed;
     color: #fff;
-    z-index: 1;
+    z-index: 2;
     right: 100px;
     top: 20px;
     font-size: 13px;
@@ -158,9 +158,9 @@ body {
 
 .page_nine {
     background-image: url('img/bg(7).jpg');
-    background-size: 100%% 100%;
+    background-size: 100% 100%;
     left: 100%;
-    z-index: 1;
+    z-index: 2;
 }
 
 .page_nine .girl {
@@ -172,13 +172,14 @@ body {
 /*    page_battle   */
 
 .page_battle {
-    /*left: 100%;*/
+    left: 100%;
 }
 
 .page_battle img {
     height: 100%;
     width: 100%;
 }
+
 
 
 

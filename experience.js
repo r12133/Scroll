@@ -1,4 +1,3 @@
-// page 高度100%
 
 var win_h = window.innerHeight;
 
@@ -68,9 +67,7 @@ function change_first_settings() {
 
     page_battle.style.top = -(6 * win_h) -300 + 'px';
 
-    page_battle.style.marginBottom = '368px';
-
-    // page_battle.style.boxSizing = 'content-box';
+    page_battle.style.marginBottom = '96px';
 }
 
 window.onload = function() {
@@ -173,7 +170,7 @@ window.onload = function() {
         {key: win_h * 9, value: 'left: -100%'},
     ],
         page_six_girl_control = [
-        {key: win_h * 8, value: 'right: -200px' },
+        {key: win_h * 7.5, value: 'right: -300px' },
         {key: win_h * 9, value: 'right: 0px'},
     ];
 
@@ -226,7 +223,7 @@ window.onload = function() {
     var page_battle = document.querySelector('.page_battle');
 
     var page_battle_control = [
-        {key: win_h * 12 + 200, value: 'left: 33%' },
+        {key: win_h * 12 + 200, value: 'left: 20%' },
         {key: win_h * 12.5 + 200, value: 'left: 0%'},
     ]
 
@@ -244,6 +241,8 @@ function winScroll(e) {
     var change_first = document.querySelector('.change_first');
 
     var page_seven = document.querySelector('.page_seven');
+
+    var page_eight = document.querySelector('.page_eight');
 
     var left_left = document.querySelector('.left_left');
 
@@ -277,35 +276,30 @@ function winScroll(e) {
 
     }
 
-    // 切换battle状态图片 此时滚动高度为 13h + 200 ( margin-top ) | 386 -> margin-bottom
+    // 固定 battle 
 
-    if(st >= ( 13 * win_h + 200 ) && st <= ( 13 * win_h + 200 + 386 )) {
+    if(st >= ( win_h * 12 + 200 ) ) {
+        page_eight.style.transform = 'rotateY(0deg)'
+    }else {
+        page_battle.style.left = '100%';
+    }
 
-        var img = page_battle.children[0];
+    // 切换battle状态图片 此时滚动高度为 13h + 200
 
-        var delta = st - ( 13 * win_h + 200 );
+    if(st >= ( 13 * win_h + 200 ) && st <= ( 13 * win_h + 200 + 96 )) {
 
-        var i = img.src.indexOf('img/');
+                var img = page_battle.children[0];
 
-        var now_index = parseInt(img.src.substr(i + 4));
+                var delta = st - ( 13 * win_h + 200 );
 
-        var will_index = Math.floor(delta / 16) + 1;
+                var i = img.src.indexOf('img/');
 
-        var change_index = will_index - now_index;
+                var now_index = parseInt(img.src.substr(i + 4));
 
-        img.src = 'img/' + will_index + '.jpg'
-       
-        // if(change_index > 0) {
-        //     for (var i = 0; i < change_index; ){
-                
-        //     }
-        // }else if(change_index < 0) {
-        //     for (var i = 0; i > change_index; ){
-                
-        //     }
-        // }
+                var will_index = Math.floor(delta / 4);
 
-        // console.log(now_index)
+                var t = 0;
+
     }
 
 }
