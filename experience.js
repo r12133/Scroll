@@ -45,7 +45,9 @@ function change_first_settings() {
 
         page_eight = document.querySelector('.page_eight'),
 
-        page_nine = document.querySelector('.page_nine');
+        page_nine = document.querySelector('.page_nine'),
+
+        page_battle = document.querySelector('.page_battle');
 
     page_first.style.paddingBottom = '100px';
 
@@ -63,6 +65,12 @@ function change_first_settings() {
     page_eight.style.top = -(4 * win_h) - 300 + 'px';
 
     page_nine.style.top = -(5 * win_h) - 300 + 'px';
+
+    page_battle.style.top = -(6 * win_h) -300 + 'px';
+
+    page_battle.style.marginBottom = '368px';
+
+    // page_battle.style.boxSizing = 'content-box';
 }
 
 window.onload = function() {
@@ -213,6 +221,17 @@ window.onload = function() {
 
     animate(page_nine_girl,page_nine_girl_control)
 
+    // page_battle_animation 滚动高度为 13h + 200 ( margin-top )
+
+    var page_battle = document.querySelector('.page_battle');
+
+    var page_battle_control = [
+        {key: win_h * 12 + 200, value: 'left: 33%' },
+        {key: win_h * 12.5 + 200, value: 'left: 0%'},
+    ]
+
+    animate(page_battle,page_battle_control)
+
     // init
 
     init();
@@ -228,23 +247,67 @@ function winScroll(e) {
 
     var left_left = document.querySelector('.left_left');
 
+    var page_battle = document.querySelector('.page_battle');
+
     // 固定 change_first
 
     if(st >= ( 7 * win_h - 100 ) ) {
+
         change_first.style.position = 'fixed';
+
     }else {
+
         change_first.style.position = 'relative';
+
     }
 
     // 固定 page_seven & left_left ||  st < ( 9 * win_h + 300 ) + else if --> 让回滚时不出现闪烁
     
     if(st >= ( 8 * win_h ) && st < ( 9 * win_h + 300 ) ) {
+
         page_seven.style.left = '0%';
+
         left_left.style.left = '0px';
+
     }else if(st < ( 8 * win_h )) {
+
         page_seven.style.left = '100%';
+
         left_left.style.left = '100%';
+
     }
+
+    // 切换battle状态图片 此时滚动高度为 13h + 200 ( margin-top ) | 386 -> margin-bottom
+
+    if(st >= ( 13 * win_h + 200 ) && st <= ( 13 * win_h + 200 + 386 )) {
+
+        var img = page_battle.children[0];
+
+        var delta = st - ( 13 * win_h + 200 );
+
+        var i = img.src.indexOf('img/');
+
+        var now_index = parseInt(img.src.substr(i + 4));
+
+        var will_index = Math.floor(delta / 16) + 1;
+
+        var change_index = will_index - now_index;
+
+        img.src = 'img/' + will_index + '.jpg'
+       
+        // if(change_index > 0) {
+        //     for (var i = 0; i < change_index; ){
+                
+        //     }
+        // }else if(change_index < 0) {
+        //     for (var i = 0; i > change_index; ){
+                
+        //     }
+        // }
+
+        // console.log(now_index)
+    }
+
 }
 
 

@@ -169,7 +169,16 @@ body {
 }
 
 
+/*    page_battle   */
 
+.page_battle {
+    /*left: 100%;*/
+}
+
+.page_battle img {
+    height: 100%;
+    width: 100%;
+}
 
 
 
