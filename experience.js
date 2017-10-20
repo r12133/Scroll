@@ -1,20 +1,21 @@
-
+// 窗口高度
 var win_h = window.innerHeight;
-
+// 全局控制器
 var control = {
     t: 0,
     autoplay: false,
-    speed: 5,
-    audio: false
+    speed: 6,
+    audio: false,
+    user_scroll_speed: 48,
 }
-
+// 设置动画
 function animate(obj,arr) {
     arr.forEach(function(ele){
         ele.key = 'data-' + ele.key;
         obj.setAttribute(ele.key,ele.value);
     })
 }
-
+// 开始自动滚动
 function startScroll(status){
     status.innerText = 'AUTOPLAY ON';
     clearInterval(control.t)
@@ -22,16 +23,29 @@ function startScroll(status){
         document.documentElement.scrollTop++;
     },control.speed)
 }
-
+// 关闭自动滚动
 function stopScroll(status){
     status.innerText = 'AUTOPLAY OFF';
     clearInterval(control.t)
 }
-
+// 用户滚动的速度
+function define_scroll_speed(num){
+    num = num || 8;
+    document.onmousewheel = function(e){
+        e.preventDefault();
+        e.returnValue = false;
+        if(e.deltaY > 0) {
+            document.documentElement.scrollTop+=num;
+        }else {
+            document.documentElement.scrollTop-=num;
+        }
+    }
+}
+// 初始化
 function init() {
     var s = skrollr.init();
 }
-
+// 第一次转场的设置
 function change_first_settings() {
 
     var page_first = document.querySelector('.change_first .page'),
@@ -65,12 +79,14 @@ function change_first_settings() {
 
     page_nine.style.top = -(5 * win_h) - 300 + 'px';
 
-    page_battle.style.top = -(6 * win_h) -300 + 'px';
+    page_battle.style.top = -(6 * win_h) - 330 + 'px';
 
-    page_battle.style.marginBottom = '96px';
+    page_battle.style.marginBottom = '192px';
 }
 
 window.onload = function() {
+
+    define_scroll_speed(control.user_scroll_speed)
 
     // controll
 
@@ -220,20 +236,20 @@ window.onload = function() {
 
     // page_battle_animation 滚动高度为 13h + 200 ( margin-top )
 
-    var page_battle = document.querySelector('.page_battle');
+    // var page_battle = document.querySelector('.page_battle');
 
-    var page_battle_control = [
-        {key: win_h * 12 + 200, value: 'left: 20%' },
-        {key: win_h * 12.5 + 200, value: 'left: 0%'},
-    ]
+    // var page_battle_control = [
+    //     {key: win_h * 12 + 200, value: 'left: 20%' },
+    //     {key: win_h * 12.5 + 200, value: 'left: 0%'},
+    // ]
 
-    animate(page_battle,page_battle_control)
+    // animate(page_battle,page_battle_control)
 
     // init
 
     init();
 }
-
+// 监听滚动事件
 function winScroll(e) {
 
     var st = document.documentElement.scrollTop;
@@ -279,29 +295,46 @@ function winScroll(e) {
     // 固定 battle 
 
     if(st >= ( win_h * 12 + 200 ) ) {
-        page_eight.style.transform = 'rotateY(0deg)'
+        if(page_eight.style.transform != 'rotateY(0deg)'){
+            page_eight.style.transform = 'rotateY(0deg)'
+        }
+        page_battle.style.left = '0%';
     }else {
         page_battle.style.left = '100%';
     }
 
-    // 切换battle状态图片 此时滚动高度为 13h + 200
+    // 切换battle状态图片 此时滚动高度为 13h + 200 | delta 30 是缓冲 ( margin-top )
 
-    if(st >= ( 13 * win_h + 200 ) && st <= ( 13 * win_h + 200 + 96 )) {
+    if(st >= ( 13 * win_h + 200 ) && st <= ( 13 * win_h + 200 + 192 + 30 )) {
 
-                var img = page_battle.children[0];
+        define_scroll_speed();
 
-                var delta = st - ( 13 * win_h + 200 );
+        var img = page_battle.children[0];
 
-                var i = img.src.indexOf('img/');
+        var delta = st - ( 13 * win_h + 200 + 30);
 
-                var now_index = parseInt(img.src.substr(i + 4));
+        var will_index = delta / 8;
 
-                var will_index = Math.floor(delta / 4);
+        if(Math.floor(will_index) != will_index){
+            will_index = Math.floor(will_index) + 1;
+        }
 
-                var t = 0;
+        if(will_index <= 0) {
+            will_index = 1;
+        }
 
+        img.src = 'img/' + will_index + '.jpg';
+    }else {
+        define_scroll_speed(control.user_scroll_speed)
     }
-
 }
+
+
+
+
+
+
+
+
 
 

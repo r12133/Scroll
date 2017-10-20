@@ -168,11 +168,11 @@ body {
     left: -800px;
 }
 
-
 /*    page_battle   */
 
 .page_battle {
     left: 100%;
+    margin-top: 30px;
 }
 
 .page_battle img {
