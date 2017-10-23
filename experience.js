@@ -139,6 +139,12 @@ function change_first_settings() {
 
 window.onload = function() {
 
+    // 刷新回顶部
+
+    setTimeout(function(){
+        document.documentElement.scrollTop = 0;
+    }, 0);
+
     define_scroll_speed(control.user_scroll_speed)
 
     // controll
@@ -295,15 +301,15 @@ window.onload = function() {
         {key: win_h * 13 + 200 + 192 + 30, value: 'left: 0%' },
         {key: win_h * 14 + 200 + 192 + 30, value: 'left: -100%'},
     ]
-
+    
     animate(page_battle,page_battle_control)
 
     // page_nine_animation ( self girl )  滚动高度为 15h + 200 + 192 + 30
-
+    
     var page_ten = document.querySelector('.page_ten'),
 
         page_ten_girl = document.querySelector('.page_ten .girl');
-
+        
     var page_ten_control = [
         {key: win_h * 14 + 200 + 192 + 30, value: 'left: 100%' },
         {key: win_h * 16 + 200 + 192 + 30, value: 'left: -100%'},
@@ -458,7 +464,7 @@ window.onload = function() {
         {key: win_h * 27 + 200 + 192 + 30, value: 'top: ' + ( -(17 * win_h) - 330 -192 ) + 'px;' },
         {key: win_h * 29 + 200 + 192 + 30, value: 'top: ' + ( -(19 * win_h) - 330 -192 ) + 'px;' },
     ];
-    
+
     animate(page_nineteen,page_nineteen_control);
 
     // page_end_animation  滚动高度为 29h + 200 + 192 + 30
@@ -525,7 +531,7 @@ function winScroll(e) {
 
     // 固定 battle 
 
-    if(st >= ( win_h * 12 + 200 ) ) {
+    if(st >= ( win_h * 12 + 200 ) && st <= ( 13 * win_h + 200 + 192 + 30 ) ) {
         if(page_eight.style.transform != 'rotateY(0deg)'){
             page_eight.style.transform = 'rotateY(0deg)'
         }
@@ -559,11 +565,11 @@ function winScroll(e) {
             img.src = 'img/' + will_index + '.jpg';
 
         }())
-
+        
     }else {
         define_scroll_speed(control.user_scroll_speed)
     }
-    
+
     // 固定 left_left_end    battle 出现到结束时都可以固定
     
     if(st >= ( 13 * win_h + 200 + 192 + 30 ) ) {
