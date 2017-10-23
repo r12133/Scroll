@@ -180,11 +180,35 @@ body {
     width: 100%;
 }
 
+/*    left_left_end   */
 
+.left_left_end {
+    left: 100%;
+    z-index: -1;
+}
 
+/*    page_ten   */
 
+.page_ten {
+    background-image: url('img/bg(8).jpg');
+    background-size: 100% 100%;
+    left: 100%;
+}
 
+.page_ten .girl {
+    top: 15%;
+    left: 30%;
+}
 
+/*    page_eleven   */
 
+.page_eleven {
+    background-image: url('img/bg(9).jpg');
+    background-size: 100% 100%;
+    left: 100%;
+}
 
-
+.page_eleven .girl {
+/*    top: 15%;
+    left: 30%;*/
+}
