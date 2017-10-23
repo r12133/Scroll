@@ -100,6 +100,7 @@ body {
 .page_five {
     background-image: url('img/bg(4).jpg');
     background-size: 100% 100%;
+    z-index: 1;
 }
 
 .page_five .dog_left {
@@ -212,3 +213,103 @@ body {
 /*    top: 15%;
     left: 30%;*/
 }
+
+/*    page_twelve   */
+
+.page_twelve {
+    background-image: url('img/bg(10).jpg');
+    background-size: 100% 100%;
+    left: 100%;
+}
+
+.page_twelve .girl {
+    right: -150px;
+    bottom: 0;
+}
+
+.page_twelve .car {
+    bottom: 130px;
+    left: 30%;
+}
+
+
+/*     page_thirteen    */
+
+.page_thirteen {
+    background-image: url('img/bg(11).jpg');
+    background-size: 100% 100%;
+    left: 100%;
+}
+
+.page_thirteen .girl {
+    bottom: 0;
+    left: 50%;
+}
+
+/*     page_fourteen    */
+
+.page_fourteen {
+    background-image: url('img/bg(12).jpg');
+    background-size: 100% 100%;
+    left: 0%;
+}
+
+.page_fourteen .girl {
+    left: 40%;
+}
+
+/*     page_fiveteen    */
+
+.page_fiveteen {
+    background-image: url('img/bg(13).jpg');
+    background-size: 100% 100%;
+    left: 0%;
+}
+
+/*     page_sixteen    */
+
+.page_sixteen {
+    background-image: url('img/bg(14).jpg');
+    background-size: 100% 100%;
+    left: 100%;
+}
+
+/*     page_seventeen    */
+
+.page_seventeen {
+    background-image: url('img/bg(15).jpg');
+    background-size: 100% 100%;
+    left: 100%;
+}
+
+/*     page_eightteen  page_light_on   */
+
+.page_eightteen {
+    background-image: url('img/bg(16).jpg');
+    background-size: 100% 100%;
+    left: 100%;
+    opacity: 0.4;
+}
+
+.page_eightteen .girl {
+    bottom: 0;
+    left: -500px;
+}
+
+/*   page_nineteen  */
+
+.page_nineteen {
+    background-image: url('img/bg(17).jpg');
+    background-size: 100% 100%;
+    left: 0;
+    z-index: -1;
+}
+
+/*   page_end  */
+
+.page_end {
+    left: 0;
+}
+
+
+

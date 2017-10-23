@@ -71,7 +71,25 @@ function change_first_settings() {
 
         page_ten = document.querySelector('.page_ten'),
 
-        page_eleven = document.querySelector('.page_eleven');
+        page_eleven = document.querySelector('.page_eleven'),
+
+        page_twelve = document.querySelector('.page_twelve'),
+
+        page_thirteen = document.querySelector('.page_thirteen'),
+
+        page_fourteen = document.querySelector('.page_fourteen'),
+
+        page_fiveteen = document.querySelector('.page_fiveteen'),
+
+        page_sixteen = document.querySelector('.page_sixteen'),
+
+        page_seventeen = document.querySelector('.page_seventeen'),
+
+        page_eightteen = document.querySelector('.page_eightteen'),
+
+        page_nineteen = document.querySelector('.page_nineteen'),
+
+        page_end = document.querySelector('.page_end');
 
     page_first.style.paddingBottom = '100px';
 
@@ -99,6 +117,24 @@ function change_first_settings() {
     page_ten.style.top = -(8 * win_h) - 330 - 192 + 'px';
 
     page_eleven.style.top = -(9 * win_h) - 330 -192 + 'px';
+
+    page_twelve.style.top = -(11 * win_h) - 330 -192 + 'px';
+
+    page_thirteen.style.top = -(12 * win_h) - 330 -192 + 'px';
+
+    page_fourteen.style.top = -(14 * win_h) - 330 -192 + 'px';  // 从上到下 所以高 100%
+
+    page_fiveteen.style.top = -(15 * win_h) - 330 -192 + 'px';  // 从上到下
+
+    page_sixteen.style.top = -(15 * win_h) - 330 -192 + 'px';  // 从左到右 恢复正常高度
+
+    page_seventeen.style.top = -(16 * win_h) - 330 -192 + 'px';
+
+    page_eightteen.style.top = -(17 * win_h) - 330 -192 + 'px';
+
+    page_nineteen.style.top = -(17 * win_h) - 330 -192 + 'px';  // 从下到上
+
+    page_end.style.top = -(18 * win_h) - 330 -192 + 'px';  // 从下到上
 }
 
 window.onload = function() {
@@ -302,6 +338,140 @@ window.onload = function() {
 
     animate(page_eleven_girl,page_eleven_girl_control)
 
+    // page_twelve_animation ( self girl )  滚动高度为 18h + 200 + 192 + 30
+
+    var page_twelve = document.querySelector('.page_twelve'),
+
+        page_twelve_car = document.querySelector('.page_twelve .car');
+
+    var page_twelve_control = [
+        {key: win_h * 17 + 200 + 192 + 30, value: 'left: 100%' },
+        {key: win_h * 19 + 200 + 192 + 30, value: 'left: -100%'},
+    ],
+
+        page_twelve_car_control = [
+        {key: win_h * 17 + 200 + 192 + 30, value: 'left: 27%' },
+        {key: win_h * 19 + 200 + 192 + 30, value: 'left: 33%'},
+    ];
+
+    animate(page_twelve,page_twelve_control)
+
+    animate(page_twelve_car,page_twelve_car_control)
+
+    // page_thirteen_animation ( self girl )  滚动高度为 19h + 200 + 192 + 30
+
+    var page_thirteen = document.querySelector('.page_thirteen'),
+
+        page_thirteen_girl = document.querySelector('.page_thirteen .girl');
+
+    var page_thirteen_control = [
+        {key: win_h * 18 + 200 + 192 + 30, value: 'left: 100%' },
+        {key: win_h * 20 + 200 + 192 + 30, value: 'left: -100%'},
+    ],
+
+        page_thirteen_girl_control = [
+        {key: win_h * 18 + 200 + 192 + 30, value: 'left: 45%' },
+        {key: win_h * 20 + 200 + 192 + 30, value: 'left: 55%'},
+    ];
+
+    animate(page_thirteen,page_thirteen_control)
+
+    animate(page_thirteen_girl,page_thirteen_girl_control)
+
+    // page_fourteen_animation ( self girl )  滚动高度为 21h + 200 + 192 + 30
+
+    var page_fourteen = document.querySelector('.page_fourteen'),
+
+        page_fourteen_girl = document.querySelector('.page_fourteen .girl');
+
+    var page_fourteen_control = [
+        {key: win_h * 20 + 200 + 192 + 30, value: 'top: ' + ( -(14 * win_h) - 330 -192 ) + 'px;' },
+        {key: win_h * 22 + 200 + 192 + 30, value: 'top: ' + ( -(12 * win_h) - 330 -192 ) + 'px;' },
+    ],
+
+        page_fourteen_girl_control = [
+        {key: win_h * 20 + 200 + 192 + 30, value: 'top: 0%' },
+        {key: win_h * 22 + 200 + 192 + 30, value: 'top: 20%'},
+    ];
+
+    animate(page_fourteen,page_fourteen_control)
+
+    animate(page_fourteen_girl,page_fourteen_girl_control)
+
+    // page_fiveteen_animation  滚动高度为 22h + 200 + 192 + 30
+
+    var page_fiveteen = document.querySelector('.page_fiveteen');
+
+    var page_fiveteen_control = [
+        {key: win_h * 21 + 200 + 192 + 30, value: 'top: ' + ( -(15 * win_h) - 330 -192 ) + 'px;' },
+        {key: win_h * 23 + 200 + 192 + 30, value: 'top: ' + ( -(13 * win_h) - 330 -192 ) + 'px;'},
+    ];
+
+    animate(page_fiveteen,page_fiveteen_control)
+
+    // page_sixteen_animation  滚动高度为 24h + 200 + 192 + 30
+
+    var page_sixteen = document.querySelector('.page_sixteen');
+
+    var page_sixteen_control = [
+        {key: win_h * 23 + 200 + 192 + 30, value: 'left: 100%' },
+        {key: win_h * 25 + 200 + 192 + 30, value: 'left: -100%'},
+    ];
+
+    animate(page_sixteen,page_sixteen_control)
+
+    // page_seventeen_animation  滚动高度为 25h + 200 + 192 + 30
+
+    var page_seventeen = document.querySelector('.page_seventeen');
+
+    var page_seventeen_control = [
+        {key: win_h * 24 + 200 + 192 + 30, value: 'left: 100%' },
+        {key: win_h * 26 + 200 + 192 + 30, value: 'left: -100%'},
+    ];
+
+    animate(page_seventeen,page_seventeen_control)
+
+    // page_eightteen_animation  滚动高度为 26h + 200 + 192 + 30
+
+    var page_eightteen = document.querySelector('.page_eightteen'),
+
+        page_eightteen_girl = document.querySelector('.page_eightteen .girl');
+
+    var page_eightteen_control = [
+        {key: win_h * 25 + 200 + 192 + 30, value: 'left: 100%' },
+        {key: win_h * 27 + 200 + 192 + 30, value: 'left: -100%'},
+    ],
+        page_eightteen_girl_control = [
+        {key: win_h * 25 + 200 + 192 + 30, value: 'left: -500px' },
+        {key: win_h * 27 + 200 + 192 + 30, value: 'left: 0px'},
+    ];
+
+    animate(page_eightteen,page_eightteen_control)
+
+    animate(page_eightteen_girl,page_eightteen_girl_control)
+
+    // page_nineteen_animation  滚动高度为 28h + 200 + 192 + 30
+
+    var page_nineteen = document.querySelector('.page_nineteen');
+
+    var page_nineteen_control = [
+        {key: win_h * 27 + 200 + 192 + 30, value: 'top: ' + ( -(17 * win_h) - 330 -192 ) + 'px;' },
+        {key: win_h * 29 + 200 + 192 + 30, value: 'top: ' + ( -(19 * win_h) - 330 -192 ) + 'px;' },
+    ];
+    
+    animate(page_nineteen,page_nineteen_control);
+
+    // page_end_animation  滚动高度为 29h + 200 + 192 + 30
+
+    var page_end = document.querySelector('.page_end');
+
+    var page_end_control = [
+        {key: win_h * 28 + 200 + 192 + 30, value: 'top: ' + ( -(18 * win_h) - 330 -192 ) + 'px;' },
+        {key: win_h * 29 + 200 + 192 + 30, value: 'top: ' + ( -(19 * win_h) - 330 -192 ) + 'px;' },
+    ];
+
+    animate(page_end,page_end_control);
+
     // init
 
     init();
@@ -322,6 +492,8 @@ function winScroll(e) {
     var page_battle = document.querySelector('.page_battle');
 
     var left_left_end = document.querySelector('.left_left_end');
+
+    var page_eightteen = document.querySelector('.page_eightteen');
 
     // 固定 change_first
 
@@ -366,27 +538,32 @@ function winScroll(e) {
 
     if(st >= ( 13 * win_h + 200 ) && st <= ( 13 * win_h + 200 + 192 + 30 ) ) {
 
-        define_scroll_speed();
+        (function(){
 
-        var img = page_battle.children[0];
+            define_scroll_speed();
 
-        var delta = st - ( 13 * win_h + 200 + 30);
+            var img = page_battle.children[0];
 
-        var will_index = delta / 8;
+            var delta = st - ( 13 * win_h + 200 + 30);
 
-        if(Math.floor(will_index) != will_index){
-            will_index = Math.floor(will_index) + 1;
-        }
+            var will_index = delta / 8;
 
-        if(will_index <= 0) {
-            will_index = 1;
-        }
+            if(Math.floor(will_index) != will_index){
+                will_index = Math.floor(will_index) + 1;
+            }
 
-        img.src = 'img/' + will_index + '.jpg';
+            if(will_index <= 0) {
+                will_index = 1;
+            }
+
+            img.src = 'img/' + will_index + '.jpg';
+
+        }())
+
     }else {
         define_scroll_speed(control.user_scroll_speed)
     }
- 
+    
     // 固定 left_left_end    battle 出现到结束时都可以固定
     
     if(st >= ( 13 * win_h + 200 + 192 + 30 ) ) {
@@ -394,6 +571,30 @@ function winScroll(e) {
         page_battle.style.left = '100%'
     }else {
         left_left_end.style.left = '100%';
+    }
+
+    // 固定 page_eightteen 开灯效果 滚动高度为 26h + 200 + 192 + 30
+
+    if(st >= ( 25.3 * win_h + 200 + 192 + 30 ) && st < ( 27 * win_h + 200 + 192 + 30 ) ) {
+
+        (function(){
+
+            var delta = st - ( 25.3 * win_h + 200 + 192 + 30 );
+
+            var op = parseInt( delta / 48 );
+
+            if(op == 0) {
+                page_eightteen.style.backgroundImage = "url('img/bg(16).jpg')";
+                page_eightteen.style.opacity = 0.4;
+            }
+            
+            if(op >= 2) {
+                page_eightteen.style.opacity = op * 2 / 10;
+                page_eightteen.style.backgroundImage = "url('img/bg(16_2).jpg')";
+            }
+
+        }())
+
     }
 }
 
