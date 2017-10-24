@@ -19,9 +19,10 @@ body {
     right: 100px;
     top: 20px;
     font-size: 13px;
+    user-select: none;
 }
 
-.status {
+.status,.sound {
     cursor: pointer;
 }
 
