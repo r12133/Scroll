@@ -46,14 +46,11 @@ body {
     top: 0;
     bottom: 0;
     z-index: 3;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 .loading .left,.loading .right {
     position: absolute;
     top: 0; bottom: 0;
-    background: #edeff0;
+    background: #ffffff;
     transition: all linear 2s;
 }
 .loading .left {
@@ -65,9 +62,12 @@ body {
     width: 50%;
 }
 .loading .lds-eclipse {
-  position: relative;
-  margin-top: -40px;
-  z-index: 1;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%) !important;
+    margin-top: -80px;
+    z-index: 1;
 }
 .loading .lds-eclipse div {
   position: absolute;
